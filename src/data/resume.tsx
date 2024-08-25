@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { HomeIcon, ImageIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
   name: "Özkan Demir",
@@ -33,6 +33,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/bilder", icon: ImageIcon, label: "Bilder" },
   ],
   contact: {
     email: "hello@example.com",
