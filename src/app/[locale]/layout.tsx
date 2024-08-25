@@ -64,7 +64,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            <LanguageChanger locale={undefined}/>
+            <LanguageChanger/>
             {children}
             <Navbar />
           </TooltipProvider>
