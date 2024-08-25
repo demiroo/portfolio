@@ -17,6 +17,7 @@
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cobe": "^0.6.3",
     "framer-motion": "^11.2.10",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.395.0",
@@ -24,7 +25,9 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-icon-cloud": "^4.1.4",
     "react-markdown": "^9.0.1",
+    "react-spring": "^9.7.4",
     "rehype-pretty-code": "^0.13.2",
     "rehype-stringify": "^10.0.0",
     "remark-parse": "^11.0.0",
@@ -42,7 +45,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.10",
     "typescript": "^5"
   }
 }

@@ -2,18 +2,19 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Dillion Verma",
-  initials: "DV",
-  url: "https://dillion.io",
-  location: "San Francisco, CA",
+  name: "Özkan Demir",
+  initials: "ÖD",
+  url: "https://dmr.dev",
+  location: "Germany DE",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
+    "Ich bin begeistert von Webtechnologien und allem, was mit dem Programmieren zu tun hat. Ich bin sehr hilfsbereit und neugierig auf Open-Source-Projekte.",
   summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
+    "Ich habe mich dazu entschieden, mich voll und ganz dem Programmieren zu widmen 🫣 und meine Fähigkeiten im Bereich Webentwicklung weiter auszubauen. Geboren in Deutschland, habe ich mich in den letzten Jahren intensiv mit modernen Technologien wie React, Next.js, React Native und vielen weiteren Tools beschäftigt. Die Welt der Programmierung fasziniert mich, und ich bin stets neugierig, neue Technologien zu entdecken und an Open-Source-Projekten mitzuwirken. Mein Ziel ist es, die digitale Zukunft aktiv mitzugestalten und durch innovative Lösungen einen Mehrwert zu schaffe",
   avatarUrl: "/me.png",
   skills: [
     "React",
+    "React Native",
     "Next.js",
     "Typescript",
     "Node.js",
@@ -24,6 +25,10 @@ export const DATA = {
     "Kubernetes",
     "Java",
     "C++",
+    "Linux",
+    "MAC OS",
+    "Windows",
+    "MongoDB"
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -35,7 +40,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://dub.sh/dillion-github",
+        url: "https://github.com/demiroo",
         icon: Icons.github,
 
         navbar: true,
