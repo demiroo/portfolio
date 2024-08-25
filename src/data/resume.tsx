@@ -36,7 +36,7 @@ export const DATA = {
     { href: "/bilder", icon: ImageIcon, label: "Bilder" },
   ],
   contact: {
-    email: "hello@example.com",
+    email: "dmr369@proton.me",
     tel: "+123456789",
     social: {
       GitHub: {
@@ -48,21 +48,21 @@ export const DATA = {
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
+        url: "https://www.linkedin.com/in/demiroezkan",
         icon: Icons.linkedin,
 
         navbar: true,
       },
       X: {
         name: "X",
-        url: "https://dub.sh/dillion-twitter",
+        url: "https://x.com/oezkandmr",
         icon: Icons.x,
 
         navbar: true,
       },
       Youtube: {
         name: "Youtube",
-        url: "https://dub.sh/dillion-youtube",
+        url: "https://youtube.com/@oezkandemir",
         icon: Icons.youtube,
         navbar: true,
       },
