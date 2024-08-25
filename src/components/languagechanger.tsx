@@ -2,7 +2,7 @@
 import { useRouter, usePathname } from '@/navigation';
 import React from 'react';
 
-export default function LanguageChanger({ locale }) {
+export default function LanguageChanger({  }) {
   const router = useRouter();
   const pathname = usePathname();
 
