@@ -22,10 +22,10 @@ export default function BilderPage() {
 <BlurFade delay={0.25} inView>
       <BentoGrid className="lg:grid-rows-3">
         <BentoCard
-          name="Secure File Storage"
+          name=""
           className="lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3"
           Icon={FileTextIcon}
-          description="Your files are saved automatically while you work."
+          description=""
           href="/"
           cta="Find out more"
          
@@ -38,10 +38,10 @@ export default function BilderPage() {
             className="rounded-t-lg" />} />
 
         <BentoCard
-          name="Search All Files"
+          name=""
           className="lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3"
           Icon={InputIcon}
-          description="Quickly find anything across all your documents."
+          description=""
           href="/"
           cta="Learn more"
           background={<Image
@@ -59,17 +59,17 @@ export default function BilderPage() {
           href="/"
           cta="Learn more"
           background={<Image
-            src="https://guezelsoezler.com/20231119_144535.jpg"
+            src="https://guezelsoezler.com/Bildschirmfoto 2024-08-25 um 19.15.18.png"
             alt="Language Support"
             layout="fill"
             objectFit="cover"
             className="rounded-t-lg" />} />
 
         <BentoCard
-          name="Calendar View"
+          name=""
           className="lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2"
           Icon={CalendarIcon}
-          description="Organize and filter your documents by date."
+          description=""
           href="/"
           cta="Explore now"
           background={<Image
@@ -87,7 +87,7 @@ export default function BilderPage() {
           href="/"
           cta="Find out more"
           background={<Image
-            src="https://guezelsoezler.com/20240217_154734.jpg"
+            src="https://guezelsoezler.com/FB_IMG_1691304703520.jpg"
             alt="Notifications"
             layout="fill"
             objectFit="cover"
@@ -103,7 +103,7 @@ export default function BilderPage() {
           href="/"
           cta="Find out more"
           background={<Image
-            src="https://guezelsoezler.com/20240520_162407.jpg"
+            src="https://guezelsoezler.com/FB_IMG_1661260920081.jpg"
             alt="File Storage"
             layout="fill"
             objectFit="cover"
@@ -117,7 +117,7 @@ export default function BilderPage() {
           href="/"
           cta="Learn more"
           background={<Image
-            src="https://guezelsoezler.com/20231008_151133.jpg"
+            src="https://guezelsoezler.com/FB_IMG_1720428822700.jpg"
             alt="File Search"
             layout="fill"
             objectFit="cover"
@@ -131,21 +131,21 @@ export default function BilderPage() {
           href="/"
           cta="Learn more"
           background={<Image
-            src="https://guezelsoezler.com/20231119_144535.jpg"
+            src="https://guezelsoezler.com/20220807_160926.jpg"
             alt="Language Support"
             layout="fill"
             objectFit="cover"
             className="rounded-t-lg" />} />
 
         <BentoCard
-          name="Calendar View"
+          name=""
           className="lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2"
           Icon={CalendarIcon}
-          description="Organize and filter your documents by date."
+          description=""
           href="/"
           cta="Explore now"
           background={<Image
-            src="https://guezelsoezler.com/20231006_075338.jpg"
+            src="https://guezelsoezler.com/20230129_162036.jpg"
             alt="Calendar"
             layout="fill"
             objectFit="cover"
@@ -159,7 +159,7 @@ export default function BilderPage() {
           href="/"
           cta="Find out more"
           background={<Image
-            src="https://guezelsoezler.com/20240217_154734.jpg"
+            src="https://guezelsoezler.com/20230517_162017.jpg"
             alt="Notifications"
             layout="fill"
             objectFit="cover"
@@ -175,7 +175,7 @@ export default function BilderPage() {
           href="/"
           cta="Find out more"
           background={<Image
-            src="https://guezelsoezler.com/20240520_162407.jpg"
+            src="https://guezelsoezler.com/20230517_163528.jpg"
             alt="File Storage"
             layout="fill"
             objectFit="cover"
@@ -189,7 +189,7 @@ export default function BilderPage() {
           href="/"
           cta="Learn more"
           background={<Image
-            src="https://guezelsoezler.com/20231008_151133.jpg"
+            src="https://guezelsoezler.com/20230528_133845.jpg"
             alt="File Search"
             layout="fill"
             objectFit="cover"
@@ -203,7 +203,7 @@ export default function BilderPage() {
           href="/"
           cta="Learn more"
           background={<Image
-            src="https://guezelsoezler.com/20231119_144535.jpg"
+            src="https://guezelsoezler.com/20230528_133857.jpg"
             alt="Language Support"
             layout="fill"
             objectFit="cover"
@@ -217,7 +217,7 @@ export default function BilderPage() {
           href="/"
           cta="Explore now"
           background={<Image
-            src="https://guezelsoezler.com/20231006_075338.jpg"
+            src="https://guezelsoezler.com/20230528_133858.jpg"
             alt="Calendar"
             layout="fill"
             objectFit="cover"
@@ -231,7 +231,7 @@ export default function BilderPage() {
           href="/"
           cta="Find out more"
           background={<Image
-            src="https://guezelsoezler.com/20240217_154734.jpg"
+            src="https://guezelsoezler.com/20230528_143823.jpg"
             alt="Notifications"
             layout="fill"
             objectFit="cover"
