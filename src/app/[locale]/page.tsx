@@ -11,6 +11,8 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 const BLUR_FADE_DELAY = 0.04;
 import {useTranslations} from 'next-intl';
+import LanguageChanger from "@/components/languagechangerfooter";
+import LanguageChangerFooter from "@/components/languagechangerfooter";
 
 
 export default function Page() {
@@ -217,6 +219,7 @@ height={400}
                 
               </p>
             </div>
+            <LanguageChangerFooter/>
           </BlurFade>
         </div>
       </section>
