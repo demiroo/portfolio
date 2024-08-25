@@ -1,0 +1,19 @@
+{
+  "HomePage": {
+    "title": "Hallo Welt!",
+    "description": "Ich bin begeistert von Webtechnologien und allem, was mit dem Programmieren zu tun hat. Ich bin sehr hilfsbereit und neugierig auf Open-Source-Projekte.",
+    "ubermich": "Ich habe mich dazu entschieden, mich voll und ganz dem Programmieren zu widmen 🫣 und meine Fähigkeiten im Bereich Webentwicklung weiter auszubauen. Geboren in Deutschland, habe ich mich in den letzten Jahren intensiv mit modernen Technologien wie React, Next.js, React Native und vielen weiteren Tools beschäftigt. Die Welt der Programmierung fasziniert mich, und ich bin stets neugierig, neue Technologien zu entdecken und an Open-Source-Projekten mitzuwirken. Mein Ziel ist es, die digitale Zukunft aktiv mitzugestalten und durch innovative Lösungen einen Mehrwert zu schaffe",
+    "ubermichtitle": "Über mich",
+    "berufserfahrungtitle": "Berufserfahrung",
+    "ausbildungtitle": "Ausbildung",
+    "faehigkeiten": "Fähigkeiten",
+    "schauean": "Schauen Sie sich meine neuesten Arbeiten an.",
+    "ichhabeeinevielzahl": "Ich habe an einer Vielzahl von Projekten gearbeitet, die von einfachen Websites bis hin zu komplexen Webanwendungen reichten. \nAuf GitHub bin ich immer auf der Suche nach interessanten Open-Source-Projekten, die ich klone und lokal installiere, um deren Struktur und Funktionalität besser zu verstehen. \nGenau wie in diesem Portfolio finden Sie hier einige meiner Favoriten, die meine Leidenschaft und mein Fachwissen in der Webentwicklung widerspiegeln.",
+    "ichbaue": "Es macht mir Spaß, Dinge zu bauen.",
+    "ichbauegernedinge": "Es macht mir Spaß, Dinge zu bauen, weil ich dadurch kreative Ideen in die Realität umsetzen und Lösungen für spannende Herausforderungen finden kann. \nObwohl ich noch nichts Eigenes geschaffen habe, lerne ich intensiv aus bestehenden Projekten. \nDurch das Klonen und Analysieren von Open-Source-Projekten auf GitHub erhalte ich ein besseres Verständnis für deren Struktur und Funktionalität und erweitere mein Wissen und meine Fähigkeiten kontinuierlich. \nDer Prozess des Lernens und Experimentierens motiviert mich, eigene Projekte zu entwickeln und in Zukunft etwas Eigenes zu schaffen.",
+    "contact": "Schreiben Sie mir",
+    "lustaufeinchat": "Interesse an einem Gespräch? \nSchicken Sie mir einfach eine Direktnachricht.",
+    "twitterdm": "mit deiner Frage auf Twitter.",
+    "antworte": "und ich werde antworten, wann immer ich kann."
+  }
+}

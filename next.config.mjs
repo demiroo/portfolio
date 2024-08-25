@@ -1,9 +1,28 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    domains: ['magicui.design', 'picsum.photos', 'guezelsoezler.com', 'example.com'], // Füge hier die erlaubten Domains hinzu
-  },
-};
+import createNextIntlPlugin from 'next-intl/plugin';
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+ 
+/** @type {import('next').NextConfig} */
+const nextConfig = {reactStrictMode: true,
+images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'magicui.design',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'guezelsoezler.com',
+        pathname: '**',
+      },
+    ],
+  },};
+
+
+export default withNextIntl(nextConfig);

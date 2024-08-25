@@ -6,12 +6,15 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
+import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 const BLUR_FADE_DELAY = 0.04;
+import {useTranslations} from 'next-intl';
+
 
 export default function Page() {
-
+  const t = useTranslations('HomePage');
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -27,16 +30,18 @@ export default function Page() {
               <BlurFadeText
                 className="max-w-[600px] md:text-xl"
                 delay={BLUR_FADE_DELAY}
-                text={DATA.description}
+                text={t('description')}
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
       <Avatar className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full object-cover   border">
-    <AvatarImage 
-      alt={DATA.name} 
-      src={DATA.avatarUrl}
-    />
-    <AvatarFallback>{DATA.initials}</AvatarFallback>
+   <Image
+            src="https://guezelsoezler.com/4e514677-765c-40a5-8ef6-c69f579115f7.jpg.png"
+            alt="File Storage"
+width={400}
+height={400}
+            objectFit="cover"
+            className="rounded-t-lg" />
   </Avatar>
 </BlurFade>
 
@@ -45,18 +50,18 @@ export default function Page() {
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">Über mich</h2>
+          <h2 className="text-xl font-bold">{t('ubermichtitle')}</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-            {DATA.summary}
+          {t('ubermich')}
           </Markdown>
         </BlurFade>
       </section>
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Berufserfahrung.</h2>
+            <h2 className="text-xl font-bold"> {t('berufserfahrungtitle')}</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade
@@ -81,7 +86,7 @@ export default function Page() {
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">Ausbildung</h2>
+            <h2 className="text-xl font-bold">{t('ausbildungtitle')}</h2>
           </BlurFade>
           {DATA.education.map((education, id) => (
             <BlurFade
@@ -104,7 +109,7 @@ export default function Page() {
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Fähigkeiten</h2>
+            <h2 className="text-xl font-bold">{t('faehigkeiten')}</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
@@ -124,10 +129,10 @@ export default function Page() {
                   Meine Projekte
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Schauen Sie sich meine neuesten Arbeiten an
+                {t('schauean')}
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Ich habe an einer Vielzahl von Projekten gearbeitet, von einfachen Websites bis hin zu komplexen Webanwendungen. Auf GitHub halte ich stets Ausschau nach interessanten Open-Source-Projekten, die ich lokal klone und installiere, um deren Struktur und Funktionsweise besser zu verstehen. Ebenso wie in diesem Portfolio finden sich hier einige meiner Favoriten, die meine Leidenschaft und Expertise in der Webentwicklung widerspiegeln.
+                {t('ichhabeeinevielzahl')}
                 </p>
               </div>
             </div>
@@ -146,7 +151,7 @@ export default function Page() {
                   dates={project.dates}
                   tags={project.technologies}
                   image={project.image}
-                  video={project.video}
+                  
                   links={project.links}
                 />
               </BlurFade>
@@ -163,10 +168,10 @@ export default function Page() {
                   Hackathons
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Ich baue gerne Dinge
+                {t('ichbaue')}
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Ich baue gerne Dinge, weil es mir ermöglicht, kreative Ideen in die Realität umzusetzen und Lösungen für spannende Herausforderungen zu finden. Auch wenn ich bisher noch nichts Eigenes erschaffen habe, lerne ich intensiv von bestehenden Projekten. Durch das Klonen und Analysieren von Open-Source-Projekten auf GitHub kann ich deren Struktur und Funktionsweise besser verstehen und so mein Wissen und meine Fähigkeiten kontinuierlich erweitern. Der Prozess des Lernens und Experimentierens motiviert mich, eigene Projekte zu entwickeln und in Zukunft etwas Eigenes zu schaffen.
+                {t('ichbauegernedinge')}
                 </p>
               </div>
             </div>
@@ -200,15 +205,15 @@ export default function Page() {
                 Kontakt
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Schreiben Sie mir
+              {t('contact')}
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Lust auf einen Chat? Schicken Sie mir einfach eine Direktnachricht <Link
+              {t('lustaufeinchat')}<Link
                   href={DATA.contact.social.X.url}
                   className="text-blue-500 hover:underline"
                 >
-                  mit Ihrer Frage auf Twitter
-                </Link>{" "} und ich werde antworten, wann immer ich kann.
+                  {t('twitterdm')}
+                </Link>{" "} {t('antworte')}
                 
               </p>
             </div>

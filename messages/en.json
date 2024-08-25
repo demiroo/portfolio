@@ -1,0 +1,19 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "description": "I am passionate about web technologies and everything related to programming. I am very helpful and curious about open-source projects.",
+    "ubermich": "I have decided to fully dedicate myself to programming 🫣 and to further develop my skills in web development. Born in Germany, I have spent the past few years deeply exploring modern technologies such as React, Next.js, React Native, and many other tools. The world of programming fascinates me, and I am always eager to discover new technologies and contribute to open-source projects. My goal is to actively shape the digital future and create added value through innovative solutions.",
+    "ubermichtitle": "About Me",
+    "berufserfahrungtitle": "Work experience",
+    "ausbildungtitle": "Education",
+    "faehigkeiten": "Skills",
+    "schauean": "Check out my latest work.",
+    "ichhabeeinevielzahl": "I have worked on a variety of projects, ranging from simple websites to complex web applications. On GitHub, I am always on the lookout for interesting open-source projects that I clone and install locally to better understand their structure and functionality. Just like in this portfolio, you'll find some of my favorites here that reflect my passion and expertise in web development.",
+    "ichbaue": "I enjoy building things.",
+    "ichbauegernedinge": "I enjoy building things because it allows me to turn creative ideas into reality and find solutions to exciting challenges. Although I haven’t created anything of my own yet, I am intensively learning from existing projects. By cloning and analyzing open-source projects on GitHub, I gain a better understanding of their structure and functionality, continuously expanding my knowledge and skills. The process of learning and experimenting motivates me to develop my own projects and create something of my own in the future.",
+    "contact": "Write to me",
+    "lustaufeinchat": "Interested in a chat? Just send me a direct message.",
+    "twitterdm": "with your question on Twitter.",
+    "antworte": "and I'll respond whenever I can."
+  }
+}
