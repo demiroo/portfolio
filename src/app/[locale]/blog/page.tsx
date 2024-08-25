@@ -1,5 +1,7 @@
+
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
+import {getTranslations} from 'next-intl/server';
 import Link from "next/link";
 
 export const metadata = {
@@ -11,13 +13,14 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default async function BlogPage() {
   const posts = await getBlogPosts();
-
+  const t = await getTranslations('BlogPage');
+ 
   return (
     <section>
         <section className='mb-3' id="header">
         <BlurFade delay={0.25} inView>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-            Blog
+          {t('blog')}
           </h2>
         </BlurFade>
       </section>

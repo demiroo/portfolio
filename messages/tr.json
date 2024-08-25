@@ -15,5 +15,13 @@
     "lustaufeinchat": "Sohbet etmek ister misiniz? \nBana doğrudan mesaj göndermeniz yeterli.",
     "twitterdm": "Twitter'daki sorunuzla.",
     "antworte": "ve elimden geldiğince cevap vereceğim."
-  }
+  },
+  "BilderPage": {
+    "bilder": "Dünyamdan",
+    "meinerwelt": "Görseller"
+  },
+  "BlogPage": {
+    "blog": "Yazılarım"
+  },
+  "blog": "Yazılarım"
 }

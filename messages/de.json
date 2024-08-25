@@ -15,5 +15,14 @@
     "lustaufeinchat": "Interesse an einem Gespräch? \nSchicken Sie mir einfach eine Direktnachricht.",
     "twitterdm": "mit deiner Frage auf Twitter.",
     "antworte": "und ich werde antworten, wann immer ich kann."
-  }
+  },
+  "bilder": "Bilder",
+  "BilderPage": {
+    "bilder": "Bilder",
+    "meinerwelt": "aus meiner Welt"
+  },
+  "BlogPage": {
+    "blog": "Mein Blog"
+  },
+  "blog": "Mein Blog"
 }

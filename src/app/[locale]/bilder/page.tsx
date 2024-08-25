@@ -3,19 +3,21 @@ import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import { FileTextIcon, GlobeIcon, CalendarIcon, BellIcon } from "lucide-react";
 import { InputIcon } from '@radix-ui/react-icons';
 import BlurFade from '@/components/magicui/blur-fade';
+import { useTranslations } from 'next-intl';
 
 export default function BilderPage() {
+  const t = useTranslations('BilderPage');
   return (
     <>
       <section className='mb-3' id="header">
         <BlurFade delay={0.25} inView>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-            Bilder 👋
+          {t('bilder')} 👋
           </h2>
         </BlurFade>
         <BlurFade delay={0.25 * 2} inView>
           <span className="text-xl text-pretty tracking-tighter sm:text-3xl xl:text-4xl/none">
-            Meiner Welt!
+          {t('meinerwelt')}
           </span>
         </BlurFade>
       </section>

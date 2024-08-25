@@ -15,5 +15,14 @@
     "lustaufeinchat": "Interested in a chat? Just send me a direct message.",
     "twitterdm": "with your question on Twitter.",
     "antworte": "and I'll respond whenever I can."
-  }
+  },
+  "bilder": "Images",
+  "BilderPage": {
+    "bilder": "Images",
+    "meinerwelt": "from my World"
+  },
+  "BlogPage": {
+    "blog": "My Blog"
+  },
+  "blog": "My Blog"
 }
