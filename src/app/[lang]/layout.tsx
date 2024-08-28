@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
-import LanguageChanger from "@/components/languagechanger";
+import { i18n, type Locale } from "../../i18n-config";
+import LocaleSwitcher from "@/components/locale-switcher";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -48,14 +49,18 @@ export const metadata: Metadata = {
     yandex: "",
   },
 };
-
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
 export default function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: { lang: Locale };
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={params.lang} suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
@@ -64,7 +69,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            <LanguageChanger/>
+            <LocaleSwitcher/>
             {children}
             <Navbar />
           </TooltipProvider>

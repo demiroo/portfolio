@@ -4,20 +4,26 @@ import { FileTextIcon, GlobeIcon, CalendarIcon, BellIcon } from "lucide-react";
 import { InputIcon } from '@radix-ui/react-icons';
 import BlurFade from '@/components/magicui/blur-fade';
 import { useTranslations } from 'next-intl';
+import { getDictionary } from "../../../get-dictionary";
+import { Locale } from "../../../i18n-config";
 
-export default function BilderPage() {
-  const t = useTranslations('BilderPage');
+export default async function BilderPage({
+  params: { lang },
+}: {
+  params: { lang: Locale };
+}) {
+  const dictionary = await getDictionary(lang);
   return (
     <>
       <section className='mb-3' id="header">
         <BlurFade delay={0.25} inView>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-          {t('bilder')} 👋
+          {dictionary["BilderPage"].bilder}👋
           </h2>
         </BlurFade>
         <BlurFade delay={0.25 * 2} inView>
           <span className="text-xl text-pretty tracking-tighter sm:text-3xl xl:text-4xl/none">
-          {t('meinerwelt')}
+          {dictionary["BilderPage"].meinerwelt}
           </span>
         </BlurFade>
       </section>

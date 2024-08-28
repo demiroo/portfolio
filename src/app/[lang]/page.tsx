@@ -11,12 +11,18 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 const BLUR_FADE_DELAY = 0.04;
 import {useTranslations} from 'next-intl';
-import LanguageChanger from "@/components/languagechangerfooter";
-import LanguageChangerFooter from "@/components/languagechangerfooter";
+import { getDictionary } from "../../get-dictionary";
+import { Locale } from "../../i18n-config";
+import LocaleSwitcher from "@/components/locale-switcher";
 
 
-export default function Page() {
-  const t = useTranslations('HomePage');
+export default async function Page( {
+  params: { lang },
+}: {
+  params: { lang: Locale };
+}) {
+  const dictionary = await getDictionary(lang);
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
@@ -29,11 +35,13 @@ export default function Page() {
                 yOffset={8}
                 text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
               />
-              <BlurFadeText
-                className="max-w-[600px] md:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={t('description')}
-              />
+            <BlurFadeText
+  className="max-w-[600px] md:text-xl"
+  delay={BLUR_FADE_DELAY}
+  text={dictionary["HomePage"].description}  // Corrected this line
+/>
+
+
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
       <Avatar className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full object-cover   border">
@@ -52,18 +60,16 @@ height={400}
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">{t('ubermichtitle')}</h2>
+          <h2 className="text-xl font-bold">{dictionary["HomePage"].title} </h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-          {t('ubermich')}
-          </Markdown>
+        <h2 className="text-xl font-bold">{dictionary["HomePage"].description} </h2>
         </BlurFade>
       </section>
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold"> {t('berufserfahrungtitle')}</h2>
+            <h2 className="text-xl font-bold"> {dictionary["HomePage"].berufserfahrungtitle} </h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade
@@ -88,7 +94,7 @@ height={400}
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">{t('ausbildungtitle')}</h2>
+            <h2 className="text-xl font-bold">{dictionary["HomePage"].ausbildungtitle} </h2>
           </BlurFade>
           {DATA.education.map((education, id) => (
             <BlurFade
@@ -111,7 +117,7 @@ height={400}
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">{t('faehigkeiten')}</h2>
+            <h2 className="text-xl font-bold">{dictionary["HomePage"].faehigkeiten} </h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
@@ -131,10 +137,10 @@ height={400}
                   Meine Projekte
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                {t('schauean')}
+                {dictionary["HomePage"].schauean} 
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                {t('ichhabeeinevielzahl')}
+                {dictionary["HomePage"].ichhabeeinevielzahl} 
                 </p>
               </div>
             </div>
@@ -170,10 +176,10 @@ height={400}
                   Hackathons
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                {t('ichbaue')}
+                {dictionary["HomePage"].ichbaue} 
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                {t('ichbauegernedinge')}
+                {dictionary["HomePage"].ichbauegernedinge} 
                 </p>
               </div>
             </div>
@@ -207,19 +213,19 @@ height={400}
                 Kontakt
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              {t('contact')}
+              {dictionary["HomePage"].contact} 
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {t('lustaufeinchat')}<Link
+              {dictionary["HomePage"].lustaufeinchat} <Link
                   href={DATA.contact.social.X.url}
                   className="text-blue-500 hover:underline"
                 >
-                  {t('twitterdm')}
-                </Link>{" "} {t('antworte')}
+                 {dictionary["HomePage"].twitterdm} 
+                </Link>{" "}{dictionary["HomePage"].antworte} 
                 
               </p>
             </div>
-            <LanguageChangerFooter/>
+            <LocaleSwitcher/>
           </BlurFade>
         </div>
       </section>
