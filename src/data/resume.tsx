@@ -2,10 +2,10 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Dillion Verma",
-  initials: "DV",
+  name: "Özkan Demir",
+  initials: "dmr",
   url: "https://dillion.io",
-  location: "San Francisco, CA",
+  location: "Germany Oberhausen",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
     "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
@@ -35,7 +35,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://dub.sh/dillion-github",
+        url: "https://github.com/demiroo",
         icon: Icons.github,
 
         navbar: true,
