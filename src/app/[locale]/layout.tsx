@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: DATA.description,
     url: DATA.url,
     siteName: `${DATA.name}`,
-    locale: "en_US",
+    locale: "de_DE",
     type: "website",
   },
   robots: {
@@ -74,7 +74,7 @@ export default async function RootLayout({
 
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="de" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
@@ -83,7 +83,7 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider locale="message">
          <LocaleSwitcher/>
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <TooltipProvider delayDuration={0}>
             {children}
             <Navbar />
