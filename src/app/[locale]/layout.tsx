@@ -6,6 +6,11 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import { getMessages } from "next-intl/server";
+import LocaleSwitcher from "@/components/locale-switcher";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -47,12 +52,27 @@ export const metadata: Metadata = {
     yandex: "",
   },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
+  // Get the locale from the params
+  const { locale } = await params;
+
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  // Provide all messages to the client
+  const messages = await getMessages();
+
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -61,12 +81,15 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <NextIntlClientProvider locale="message">
+         <LocaleSwitcher/>
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
             {children}
             <Navbar />
           </TooltipProvider>
         </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
