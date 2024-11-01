@@ -8,6 +8,7 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
 import LocaleSwitcher from "@/components/locale-switcher";
@@ -80,6 +81,10 @@ export default async function RootLayout({
         <link rel="manifest" href={`/${locale}/manifest.json`} />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <link rel="preload" href="/me.png" as="image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* Load third-party scripts efficiently */}
+        <Script src="https://third-party-script.js" strategy="lazyOnload" />
       </head>
       <body
         className={cn(

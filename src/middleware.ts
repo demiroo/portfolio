@@ -14,9 +14,14 @@ const createIntlMiddleware = createMiddleware(routing);
 export function middleware(request: NextRequest, event: NextFetchEvent) {
   const response = shouldUseIntl ? createIntlMiddleware(request) : NextResponse.next();
   
-  // Add caching headers
-  response.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
-  
+    // Add caching headers for static assets
+  if (request.url.includes('/images/') || request.url.includes('.png')) {
+    response.headers.set(
+      'Cache-Control',
+      'public, max-age=31536000, immutable'
+    )
+  }
+
   return response;
 }
 

@@ -1,6 +1,7 @@
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import Image from "next/image";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -13,7 +14,7 @@ import { useTranslations } from "next-intl";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  const t = useTranslations('Page');
+  const t = useTranslations("Page");
 
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
@@ -25,7 +26,7 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 className="text-2xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none"
                 yOffset={8}
-                text={t('greeting', { name: DATA.name.split(" ")[0] })}
+                text={t("greeting", { name: DATA.name.split(" ")[0] })}
               />
               <BlurFadeText
                 className="max-w-[600px] md:text-xl"
@@ -35,7 +36,16 @@ export default function Page() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <Image
+                  src="/me.png"
+                  alt="Özkan Demir"
+                  width={400}
+                  height={400}
+                  priority={true} // Force preload for LCP
+                  className="aspect-square h-full w-full"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+                />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
             </BlurFade>
@@ -44,7 +54,7 @@ export default function Page() {
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold">{t('about')}</h2>
+          <h2 className="text-xl font-bold">{t("about")}</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
@@ -55,7 +65,7 @@ export default function Page() {
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">{t('workExperience')}</h2>
+            <h2 className="text-xl font-bold">{t("workExperience")}</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade
@@ -70,7 +80,7 @@ export default function Page() {
                 subtitle={work.title}
                 href={work.href}
                 badges={work.badges}
-                period={`${work.start} - ${work.end ?? t('present')}`}
+                period={`${work.start} - ${work.end ?? t("present")}`}
                 description={work.description}
               />
             </BlurFade>
@@ -80,7 +90,7 @@ export default function Page() {
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">{t('education')}</h2>
+            <h2 className="text-xl font-bold">{t("education")}</h2>
           </BlurFade>
           {DATA.education.map((education, id) => (
             <BlurFade
@@ -103,7 +113,7 @@ export default function Page() {
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">{t('skills')}</h2>
+            <h2 className="text-xl font-bold">{t("skills")}</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
@@ -120,13 +130,13 @@ export default function Page() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  {t('myProjects')}
+                  {t("myProjects")}
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  {t('latestWork')}
+                  {t("latestWork")}
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  {t('projectsDescription')}
+                  {t("projectsDescription")}
                 </p>
               </div>
             </div>
@@ -159,13 +169,15 @@ export default function Page() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  {t('hackathons')}
+                  {t("hackathons")}
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  {t('buildingThings')}
+                  {t("buildingThings")}
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  {t('hackathonsDescription', { count: DATA.hackathons.length })}
+                  {t("hackathonsDescription", {
+                    count: DATA.hackathons.length,
+                  })}
                 </p>
               </div>
             </div>
@@ -196,20 +208,20 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
               <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                {t('contact')}
+                {t("contact")}
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                {t('getInTouch')}
+                {t("getInTouch")}
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                {t('contactDescription', { url: DATA.contact.social.X.url })}
+                {t("contactDescription", { url: DATA.contact.social.X.url })}
                 <Link
                   href={DATA.contact.social.X.url}
                   className="text-blue-500 hover:underline"
                 >
-                  {t('twitterLink')}
+                  {t("twitterLink")}
                 </Link>{" "}
-                {t('contactNote')}
+                {t("contactNote")}
               </p>
             </div>
           </BlurFade>
