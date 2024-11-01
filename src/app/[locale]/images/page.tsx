@@ -23,11 +23,14 @@ export default async function Images() {
         {images.map((imageUrl, idx) => (
           <BlurFade key={imageUrl} delay={0.25 + idx * 0.05} inView>
             <Image
+              src={imageUrl}
+              alt={`Random stock image ${idx + 1}`}
               width={800}
               height={600}
               className="mb-4 size-full rounded-lg object-contain"
-              src={imageUrl}
-              alt={`Random stock image ${idx + 1}`}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={75}
             />
           </BlurFade>
         ))}
