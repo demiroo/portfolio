@@ -36,6 +36,10 @@ const config = {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
+          link: {
+                DEFAULT: 'hsl(var(--link))',
+                hover: 'hsl(var(--link-hover))',
+              },
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },

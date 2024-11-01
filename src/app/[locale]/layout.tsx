@@ -83,8 +83,6 @@ export default async function RootLayout({
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <link rel="preload" href="/me.png" as="image" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        {/* Load third-party scripts efficiently */}
-        <Script src="https://third-party-script.js" strategy="lazyOnload" />
       </head>
       <body
         className={cn(

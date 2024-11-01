@@ -9,6 +9,24 @@ const withNextIntl = createNextIntlPlugin();
 
 const isDev = process.env.NODE_ENV === "development";
 
+const securityHeaders = [
+  {
+    key: "Content-Security-Policy",
+    value: `
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' blob: data: https://*.r2.dev;
+      media-src 'self' https://*.r2.dev;
+      connect-src 'self' https://*.r2.dev;
+      font-src 'self';
+      frame-src 'self';
+    `
+      .replace(/\s{2,}/g, " ")
+      .trim(),
+  },
+];
+
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
@@ -38,7 +56,6 @@ const nextConfig = {
     ];
   },
 
-  // Add proper headers for manifest
   async headers() {
     return [
       {
@@ -49,6 +66,10 @@ const nextConfig = {
             value: "application/manifest+json",
           },
         ],
+      },
+      {
+        source: "/:path*",
+        headers: securityHeaders,
       },
     ];
   },
