@@ -15,6 +15,8 @@ import LocaleSwitcher from "@/components/locale-switcher";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap", // Add this
+  preload: true, // Add this
 });
 
 export const metadata: Metadata = {

@@ -12,7 +12,12 @@ const shouldUseIntl = true;
 const createIntlMiddleware = createMiddleware(routing);
 
 export function middleware(request: NextRequest, event: NextFetchEvent) {
-  return shouldUseIntl ? createIntlMiddleware(request) : NextResponse.next();
+  const response = shouldUseIntl ? createIntlMiddleware(request) : NextResponse.next();
+  
+  // Add caching headers
+  response.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  
+  return response;
 }
 
 export const config: MiddlewareConfig = {

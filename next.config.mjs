@@ -13,6 +13,9 @@ const isDev = process.env.NODE_ENV === "development";
 const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   images: {
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
@@ -61,13 +64,38 @@ const pwaConfig = {
   publicExcludes: ["!noprecache/**/*"],
   runtimeCaching: [
     {
-      urlPattern: /^https:\/\/utfs\.io\/.*/i,
+      // Cache static assets
+      urlPattern: /^https:\/\/(.*?)\/(assets|static)\/.*/i,
       handler: "CacheFirst",
       options: {
-        cacheName: "image-cache",
+        cacheName: "static-assets",
+        expiration: {
+          maxEntries: 200,
+          maxAgeSeconds: 7 * 24 * 60 * 60, // 7 days
+        },
+      },
+    },
+    {
+      // Cache images
+      urlPattern: /.*(?:png|jpg|jpeg|svg|gif|webp)/i,
+      handler: "CacheFirst",
+      options: {
+        cacheName: "images",
         expiration: {
           maxEntries: 50,
-          maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+        },
+      },
+    },
+    {
+      // Cache API responses
+      urlPattern: /^https?:\/\/.*\/api\/.*/i,
+      handler: "NetworkFirst",
+      options: {
+        cacheName: "api-cache",
+        expiration: {
+          maxEntries: 50,
+          maxAgeSeconds: 60 * 60, // 1 hour
         },
       },
     },
