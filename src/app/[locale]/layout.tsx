@@ -72,9 +72,13 @@ export default async function RootLayout({
   // Provide all messages to the client
   const messages = await getMessages();
 
-
   return (
     <html lang="de" suppressHydrationWarning>
+      <head>
+        <link rel="manifest" href={`/${locale}/manifest.json`} />
+        <meta name="theme-color" content="#000000" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
@@ -82,13 +86,13 @@ export default async function RootLayout({
         )}
       >
         <NextIntlClientProvider locale="message">
-         <LocaleSwitcher/>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
-        </ThemeProvider>
+          <LocaleSwitcher />
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <TooltipProvider delayDuration={0}>
+              {children}
+              <Navbar />
+            </TooltipProvider>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
