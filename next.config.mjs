@@ -16,9 +16,9 @@ const securityHeaders = [
       default-src 'self';
       script-src 'self' 'unsafe-inline' 'unsafe-eval';
       style-src 'self' 'unsafe-inline';
-      img-src 'self' blob: data: https://*.r2.dev;
+      img-src 'self' blob: data: https://*.r2.dev https://picsum.photos;
       media-src 'self' https://*.r2.dev;
-      connect-src 'self' https://*.r2.dev;
+      connect-src 'self' https://*.r2.dev https://picsum.photos;
       font-src 'self';
       frame-src 'self';
     `
@@ -39,8 +39,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "utfs.io",
       },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
     ],
-    unoptimized: true,
+    // Remove the unoptimized: true line
   },
   // Already doing linting and typechecking using `bun appts`
   eslint: { ignoreDuringBuilds: true },
