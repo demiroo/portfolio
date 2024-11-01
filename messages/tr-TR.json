@@ -1,6 +1,6 @@
 {
   "Page": {
-    "greeting": "Merhaba, ben {name} 👋",
+    "greeting": "Merhaba, ben {name} ",
     "about": "Hakkımda",
     "workExperience": "İş Deneyimi",
     "education": "Eğitim",

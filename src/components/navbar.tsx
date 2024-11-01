@@ -11,6 +11,7 @@ import {
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import LocaleSwitcher from "./locale-switcher";
 
 export default function Navbar() {
   return (
@@ -61,6 +62,9 @@ export default function Navbar() {
             </DockIcon>
           ))}
         <Separator orientation="vertical" className="h-full py-2" />
+        <LocaleSwitcher />
+        <Separator orientation="vertical" className="h-full py-2" />
+
         <DockIcon>
           <Tooltip>
             <TooltipTrigger asChild>

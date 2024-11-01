@@ -1,6 +1,6 @@
 {
   "Page": {
-    "greeting": "Hi, I'm {name} 👋",
+    "greeting": "Hi, I'm {name} ",
     "about": "About",
     "workExperience": "Work Experience",
     "education": "Education",

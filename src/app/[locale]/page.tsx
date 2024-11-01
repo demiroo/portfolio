@@ -10,6 +10,8 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { useTranslations } from "next-intl";
+import ShineBorder from "@/components/ui/shine-border";
+import LocaleSwitcher from "@/components/locale-switcher";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -20,34 +22,40 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
-          <div className="gap-2 flex justify-between">
-            <div className="flex-col flex flex-1 space-y-1.5">
-              <BlurFadeText
-                delay={BLUR_FADE_DELAY}
-                className="text-2xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none"
-                yOffset={8}
-                text={t("greeting", { name: DATA.name.split(" ")[0] })}
-              />
-              <BlurFadeText
-                className="max-w-[600px] md:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              />
-            </div>
+          <div className="flex flex-col items-center space-y-4 text-center">
+            <BlurFadeText
+              delay={BLUR_FADE_DELAY}
+              className="text-2xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none"
+              yOffset={8}
+              text={t("greeting", { name: DATA.name.split(" ")[0] })}
+            />
+            <BlurFadeText
+              className="max-w-[600px] md:text-xl"
+              delay={BLUR_FADE_DELAY}
+              text={DATA.description}
+            />
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border">
-                <Image
-                  src="/me.png"
-                  alt="Özkan Demir"
-                  width={400}
-                  height={400}
-                  priority={true} // Force preload for LCP
-                  className="aspect-square h-full w-full"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
-                />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
+              <ShineBorder
+                className="rounded-full object-cover transition-transform duration-300 hover:scale-105"
+                borderRadius={1000} // Ensures the border is round, assuming a circular Avatar
+                borderWidth={2} // Adjusted for better visibility
+                duration={6} // Adjusted the animation duration for smoother effect
+                color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+              >
+                <Avatar className="size-28 border">
+                  <Image
+                    src="/me.png"
+                    alt="Özkan Demir"
+                    width={400}
+                    height={400}
+                    priority={true} // Force preload for LCP
+                    className="aspect-square h-full w-full"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+                  />
+                  <AvatarFallback>{DATA.initials}</AvatarFallback>
+                </Avatar>
+              </ShineBorder>
             </BlurFade>
           </div>
         </div>

@@ -1,6 +1,6 @@
 {
   "Page": {
-    "greeting": "你好，我是 {name} 👋",
+    "greeting": "你好，我是 {name} ",
     "about": "关于我",
     "workExperience": "工作经验",
     "education": "教育背景",

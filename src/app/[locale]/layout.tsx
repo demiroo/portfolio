@@ -8,10 +8,8 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
-import LocaleSwitcher from "@/components/locale-switcher";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -91,7 +89,6 @@ export default async function RootLayout({
         )}
       >
         <NextIntlClientProvider locale="message">
-          <LocaleSwitcher />
           <ThemeProvider attribute="class" defaultTheme="dark">
             <TooltipProvider delayDuration={0}>
               {children}
