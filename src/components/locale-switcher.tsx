@@ -24,7 +24,7 @@ export default function LocaleSwitcher() {
 
   return (
     <ScrollArea className="w-full max-w-[calc(100vw-2rem)] mb-6 md:mb-10">
-      <div className="flex justify-start md:justify-center space-x-1 p-1">
+      <div className="flex justify-center md:justify-center space-x-1 p-1">
         {Object.entries(locales).map(([locale, { flag, label }]) => (
           <Link
             key={locale}
