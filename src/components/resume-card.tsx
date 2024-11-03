@@ -45,7 +45,7 @@ export const ResumeCard = ({
       onClick={handleClick}
     >
       <Card className="flex">
-        <div className="flex-none">
+        <div className="flex-none ml-3 mt-5">
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
             <AvatarImage
               src={logoUrl}
@@ -98,7 +98,7 @@ export const ResumeCard = ({
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm"
+              className="mt-2 mb-5 mr-3 text-xs sm:text-sm"
             >
               {description}
             </motion.div>

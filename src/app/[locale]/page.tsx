@@ -11,7 +11,6 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import { useTranslations } from "next-intl";
 import ShineBorder from "@/components/ui/shine-border";
-import LocaleSwitcher from "@/components/locale-switcher";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -32,7 +31,7 @@ export default function Page() {
             <BlurFadeText
               className="max-w-[600px] md:text-xl"
               delay={BLUR_FADE_DELAY}
-              text={DATA.description}
+              text={t("descriptionhome")}
             />
             <BlurFade delay={BLUR_FADE_DELAY}>
               <ShineBorder
@@ -70,8 +69,8 @@ export default function Page() {
           </Markdown>
         </BlurFade>
       </section>
-      <section id="work">
-        <div className="flex min-h-0 flex-col gap-y-3">
+      <section id="work" className="py-8 mb-5">
+        <div className="flex flex-col gap-y-4">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="text-xl font-bold">{t("workExperience")}</h2>
           </BlurFade>

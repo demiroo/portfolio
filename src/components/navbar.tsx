@@ -62,8 +62,6 @@ export default function Navbar() {
             </DockIcon>
           ))}
         <Separator orientation="vertical" className="h-full py-2" />
-        <LocaleSwitcher />
-        <Separator orientation="vertical" className="h-full py-2" />
 
         <DockIcon>
           <Tooltip>
