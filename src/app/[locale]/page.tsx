@@ -11,8 +11,7 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import { useTranslations } from "next-intl";
 import ShineBorder from "@/components/ui/shine-border";
-import { Metadata } from "next";
-import { getPost, getBlogPosts } from "@/data/blog";
+import { getBlogPosts } from "@/data/blog";
 
 const BLUR_FADE_DELAY = 0.04;
 
