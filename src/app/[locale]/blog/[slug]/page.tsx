@@ -63,8 +63,9 @@ export async function generateMetadata(props: {
         title,
         description,
         images: [ogImage],
-        creator: `@${DATA.twitter}`,
+        creator: `{DATA.twitter}`,
       },
+      locale: params.locale,
     };
   } catch (error) {
     console.error("Error generating metadata:", error);

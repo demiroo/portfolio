@@ -2,7 +2,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import Image from "next/image"; // Import the 'Image' component
 
 export const metadata = {
-  title: "Blog",
+  title: "Images",
   description: "My thoughts on software development, life, and more.",
 };
 
