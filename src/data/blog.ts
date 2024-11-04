@@ -8,6 +8,7 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 
 type Metadata = {
+  [x: string]: any;
   title: string;
   publishedAt: string;
   summary: string;
@@ -15,8 +16,10 @@ type Metadata = {
 };
 
 interface BlogPost {
+  [x: string]: any;
   slug: string;
   metadata: {
+    [x: string]: any;
     title: string;
     publishedAt: string;
     summary: string;
@@ -81,7 +84,8 @@ export async function getPost(slug: string): Promise<BlogPost | null> {
     }
 
     const source = fs.readFileSync(filePath, "utf-8");
-    const { content: rawContent, data: metadata } = matter(source);
+    const { content: rawContent, data } = matter(source);
+    const metadata: Metadata = data as Metadata;
     
     // Ensure required metadata fields exist
     if (!metadata.title || !metadata.publishedAt || !metadata.summary) {
@@ -110,7 +114,11 @@ async function getAllPosts(dir: string) {
   return Promise.all(
     mdxFiles.map(async (file) => {
       let slug = path.basename(file, path.extname(file));
-      let { metadata, source } = await getPost(slug);
+      let post = await getPost(slug);
+      if (!post) {
+        throw new Error(`Post not found for slug: ${slug}`);
+      }
+      let { metadata, source } = post;
       return {
         metadata,
         slug,
