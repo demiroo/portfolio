@@ -11,7 +11,8 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import { useTranslations } from "next-intl";
 import ShineBorder from "@/components/ui/shine-border";
-import { getBlogPosts } from "@/data/blog";
+import { Metadata } from "next";
+import { getPost, getBlogPosts } from "@/data/blog";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -62,10 +63,12 @@ export default function Page() {
                     alt="Özkan Demir"
                     width={400}
                     height={400}
-                    priority={true} // Force preload for LCP
+                    priority={true} // Already set correctly for LCP
                     className="aspect-square h-full w-full"
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+                    loading="eager" // Force eager loading
+                    fetchPriority="high" // Signal high priority to browser
+                    sizes="(max-width: 768px) 100vw, 400px" // Help browser select correct size
+                    quality={90} // Slightly increase quality for hero image
                   />
                   <AvatarFallback>{DATA.initials}</AvatarFallback>
                 </Avatar>
