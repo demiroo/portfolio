@@ -10,55 +10,76 @@ export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{
-      slug: string;
-    }>;
+export async function generateMetadata(props: {
+  params: Promise<{
+    slug: string;
+  }>;
+}): Promise<Metadata | undefined> {
+  try {
+    const params = await props.params;
+    const post = await getPost(params.slug);
+
+    // Check if post exists
+    if (!post) {
+      return {
+        title: "Post Not Found",
+        description: "The requested blog post could not be found",
+      };
+    }
+
+    const {
+      title,
+      publishedAt: publishedTime,
+      summary: description,
+      image,
+    } = post.metadata;
+
+    const ogImage = image
+      ? `${DATA.url}${image}`
+      : `${DATA.url}/og?title=${title}`;
+    const canonicalUrl = `${DATA.url}/blog/${post.slug}`;
+
+    return {
+      title: `${title} | ${DATA.name}`,
+      description,
+      alternates: {
+        canonical: canonicalUrl,
+      },
+      openGraph: {
+        title,
+        description,
+        type: "article",
+        publishedTime,
+        url: canonicalUrl,
+        images: [
+          {
+            url: ogImage,
+            alt: title,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [ogImage],
+        creator: `@${DATA.twitter}`,
+      },
+    };
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+    return {
+      title: "Error",
+      description: "There was an error loading the blog post",
+    };
   }
-): Promise<Metadata | undefined> {
-  const params = await props.params;
-  let post = await getPost(params.slug);
-
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata;
-  let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      publishedTime,
-      url: `${DATA.url}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
 }
 
-export default async function Blog(
-  props: {
-    params: Promise<{
-      slug: string;
-    }>;
-  }
-) {
+export default async function Blog(props: {
+  params: Promise<{
+    slug: string;
+  }>;
+}) {
   const params = await props.params;
   let post = await getPost(params.slug);
 
@@ -91,7 +112,7 @@ export default async function Blog(
         }}
       />
       <h1 className="font-bold text-4xl mb-8 tracking-tight text-center text-gray-800">
-      {post.metadata.title}
+        {post.metadata.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <Suspense fallback={<p className="h-5" />}>

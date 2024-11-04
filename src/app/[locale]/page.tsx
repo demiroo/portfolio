@@ -11,9 +11,25 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import { useTranslations } from "next-intl";
 import ShineBorder from "@/components/ui/shine-border";
+import { Metadata } from "next";
+import { getPost, getBlogPosts } from "@/data/blog";
 
 const BLUR_FADE_DELAY = 0.04;
 
+export async function generateStaticParams() {
+  const posts = await getBlogPosts();
+  if (!posts) return [];
+
+  return posts.map((post) => ({
+    locale: post.locale, // Add locale parameter
+    slug: post.slug,
+  }));
+}
+
+export const metadata = {
+  title: "dmr369",
+  description: "My thoughts on software development, life, and more.",
+};
 export default function Page() {
   const t = useTranslations("Page");
 

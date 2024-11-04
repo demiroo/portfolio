@@ -89,7 +89,7 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
-        <NextIntlClientProvider locale="message">
+        <NextIntlClientProvider messages={messages} locale={locale}>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <TooltipProvider delayDuration={0}>
               <LocaleSwitcher />
