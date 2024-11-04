@@ -11,14 +11,17 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
 import LocaleSwitcher from "@/components/locale-switcher";
+import { Suspense } from "react";
 
+// Optimize font loading
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap", // Add this
-  preload: true, // Add this
+  display: "optional", // Change to optional for better performance
+  preload: true,
 });
 
+// Optimize metadata
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
@@ -27,10 +30,10 @@ export const metadata: Metadata = {
   },
   description: DATA.description,
   openGraph: {
-    title: `${DATA.name}`,
+    title: DATA.name,
     description: DATA.description,
     url: DATA.url,
-    siteName: `${DATA.name}`,
+    siteName: DATA.name,
     locale: "de_DE",
     type: "website",
   },
@@ -46,7 +49,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name}`,
+    title: DATA.name,
     card: "summary_large_image",
   },
   verification: {
@@ -54,34 +57,68 @@ export const metadata: Metadata = {
     yandex: "",
   },
 };
+
 interface RootLayoutProps {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }
 
+// Loading component for Suspense
+const Loading = () => (
+  <div className="min-h-screen animate-pulse bg-muted"></div>
+);
+
 export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  // Get the locale from the params
   const { locale } = await params;
 
-  // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
 
-  // Provide all messages to the client
   const messages = await getMessages();
 
   return (
     <html lang="de" suppressHydrationWarning>
       <head>
-        <link rel="manifest" href={`/${locale}/manifest.json`} />
+        {/* Preload critical assets */}
+        <link
+          rel="preload"
+          href={`/${locale}/manifest.json`}
+          as="fetch"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/me.png"
+          as="image"
+          type="image/png"
+          fetchPriority="high"
+        />
+
+        {/* Preconnect to external domains */}
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        {/* PWA meta tags */}
         <meta name="theme-color" content="#000000" />
+        <link rel="manifest" href={`/${locale}/manifest.json`} />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-        <link rel="preload" href="/me.png" as="image" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+        {/* Meta tags for performance */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="format-detection" content="telephone=no" />
       </head>
       <body
         className={cn(
@@ -92,9 +129,11 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ThemeProvider attribute="class" defaultTheme="dark">
             <TooltipProvider delayDuration={0}>
-              <LocaleSwitcher />
-              {children}
-              <Navbar />
+              <Suspense fallback={<Loading />}>
+                <LocaleSwitcher />
+                {children}
+                <Navbar />
+              </Suspense>
             </TooltipProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

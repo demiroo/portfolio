@@ -63,12 +63,10 @@ export default function Page() {
                     alt="Özkan Demir"
                     width={400}
                     height={400}
-                    priority={true} // Already set correctly for LCP
+                    priority={true} // Force preload for LCP
                     className="aspect-square h-full w-full"
-                    loading="eager" // Force eager loading
-                    fetchPriority="high" // Signal high priority to browser
-                    sizes="(max-width: 768px) 100vw, 400px" // Help browser select correct size
-                    quality={90} // Slightly increase quality for hero image
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
                   />
                   <AvatarFallback>{DATA.initials}</AvatarFallback>
                 </Avatar>
