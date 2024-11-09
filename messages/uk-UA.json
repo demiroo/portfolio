@@ -17,9 +17,12 @@
     "twitterLink": "із конкретним питанням у Twitter",
     "contactNote": "і я відповім, коли зможу. Усі рекламні повідомлення будуть проігноровані.",
     "present": "Зараз",
-    "descriptionhome": "Інженер-програміст, який став підприємцем. Люблю створювати речі та допомагати людям. Дуже активний у Twitter."
+    "descriptionhome": ""
   },
   "LocaleSwitcher": {
     "languages": "Мови"
+  },
+  "ImageGallery": {
+    "imageGalleryh1": "Зображення"
   }
 }

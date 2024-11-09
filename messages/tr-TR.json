@@ -17,9 +17,13 @@
     "twitterLink": "Twitter'da doğrudan bir soru ile",
     "contactNote": "ve ne zaman yapabilirsem yanıtlayacağım. Tüm pazarlama taleplerini yok sayacağım.",
     "present": "Mevcut",
-    "descriptionhome": "Yazılım mühendisi olarak girişimciliğe adım attım. Bir şeyler inşa etmeyi ve insanlara yardımcı olmayı seviyorum. Twitter'da çok aktifim."
+    "descriptionhome": "Yenilikçi çözümler ve projeler geliştiren tutkulu bir yazılım geliştiriciyim.",
+    "summary": "Başlangıçta programlama zordu, ama kısa sürede tutkum haline geldi. Şimdi projeler geliştiriyor ve başkalarına ilk adımlarını atmalarında yardımcı oluyorum."
   },
   "LocaleSwitcher": {
     "languages": "Lisan"
+  },
+  "ImageGallery": {
+    "imageGalleryh1": "Resimler"
   }
 }

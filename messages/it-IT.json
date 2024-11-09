@@ -17,9 +17,12 @@
     "twitterLink": "con una domanda su Twitter",
     "contactNote": "e ti risponderò appena posso. Ignorerò tutti i messaggi di spam.",
     "present": "Presente",
-    "descriptionhome": "Ingegnere del software diventato imprenditore. Amo costruire cose e aiutare le persone. Molto attivo su Twitter."
+    "descriptionhome": ""
   },
   "LocaleSwitcher": {
     "languages": "Lingue"
+  },
+  "ImageGallery": {
+    "imageGalleryh1": "Immagini"
   }
 }

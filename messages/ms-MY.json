@@ -17,9 +17,12 @@
     "twitterLink": "dengan soalan langsung di Twitter",
     "contactNote": "dan saya akan membalas apabila saya boleh. Saya akan mengabaikan semua mesej promosi.",
     "present": "Kini",
-    "descriptionhome": "Jurutera Perisian yang bertukar menjadi usahawan. Saya suka membina sesuatu dan membantu orang. Sangat aktif di Twitter."
+    "descriptionhome": ""
   },
   "LocaleSwitcher": {
     "languages": "Bahasa"
+  },
+  "ImageGallery": {
+    "imageGalleryh1": "Gambar"
   }
 }

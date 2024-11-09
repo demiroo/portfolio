@@ -1,40 +1,16 @@
-import BlurFade from "@/components/magicui/blur-fade";
-import Image from "next/image"; // Import the 'Image' component
+"use client";
 
-export const metadata = {
-  title: "Images",
-  description: "My thoughts on software development, life, and more.",
-};
+import { useState } from "react";
+import ImageGallery from "@/components/image-gallery";
 
-import https from "https";
-
-const images = Array.from({ length: 9 }, (_, i) => {
-  const isLandscape = i % 2 === 0;
-  const width = isLandscape ? 800 : 600;
-  const height = isLandscape ? 600 : 800;
-  return `https://picsum.photos/seed/${i + 1}/${width}/${height}`;
-});
 const BLUR_FADE_DELAY = 0.04;
 
-export default async function Images() {
+export default function Images() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
-    <section id="photos">
-      <div className="columns-2 gap-4 sm:columns-3">
-        {images.map((imageUrl, idx) => (
-          <BlurFade key={imageUrl} delay={0.25 + idx * 0.05} inView>
-            <Image
-              src={imageUrl}
-              alt={`Random stock image ${idx + 1}`}
-              width={800}
-              height={600}
-              className="mb-4 size-full rounded-lg object-contain"
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              quality={75}
-            />
-          </BlurFade>
-        ))}
-      </div>
-    </section>
+    <>
+      <ImageGallery />
+    </>
   );
 }

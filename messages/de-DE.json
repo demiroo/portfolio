@@ -17,9 +17,13 @@
     "twitterLink": "mit einer direkten Frage auf Twitter",
     "contactNote": "und ich werde antworten, wann immer ich kann. Ich ignoriere alle Anfragen.",
     "present": "Präsent",
-    "descriptionhome": "Software-Ingenieur, der zum Unternehmer wurde. Ich liebe es, Dinge zu bauen und Menschen zu helfen. Sehr aktiv auf Twitter."
+    "descriptionhome": "Leidenschaftlicher Softwareentwickler, der kreative Lösungen und innovative Projekte umsetzt.",
+    "summary": "Am Anfang war Programmieren schwierig, doch schnell wurde es meine Leidenschaft. Jetzt entwickle ich Projekte und helfe anderen, ihre ersten Schritte zu machen."
   },
   "LocaleSwitcher": {
     "languages": "Sprachen"
+  },
+  "ImageGallery": {
+    "imageGalleryh1": "Bilder"
   }
 }

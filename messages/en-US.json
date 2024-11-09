@@ -17,9 +17,13 @@
     "twitterLink": "with a direct question on twitter",
     "contactNote": "and I'll respond whenever I can. I will ignore all soliciting.",
     "present": "Present",
-    "descriptionhome": "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter."
+    "descriptionhome": "Passionate software developer creating innovative solutions and projects.",
+    "summary": "At first, programming was challenging, but it quickly became my passion. Now, I develop projects and enjoy helping others take their first steps."
   },
   "LocaleSwitcher": {
     "languages": "Languages"
+  },
+  "ImageGallery": {
+    "imageGalleryh1": "Images"
   }
 }

@@ -17,9 +17,13 @@
     "twitterLink": "avec une question directe sur Twitter",
     "contactNote": "et je te répondrai dès que possible. J'ignore tous les messages de sollicitation.",
     "present": "Présent",
-    "descriptionhome": "Ingénieur logiciel devenu entrepreneur. J'adore créer des choses et aider les gens. Très actif sur Twitter."
+    "descriptionhome": "Développeur logiciel passionné, créant des solutions et des projets innovants.",
+    "summary": "Au début, la programmation était difficile, mais cela est vite devenu ma passion. Aujourd’hui, je développe des projets et j’aime aider les autres à faire leurs premiers pas."
   },
   "LocaleSwitcher": {
     "languages": "Langues"
+  },
+  "ImageGallery": {
+    "imageGalleryh1": "Images"
   }
 }
